@@ -12,3 +12,5 @@
 * 为未来新版本的Javascript做好铺垫。 
 
 ## Changes In Strict Mode 
+
+* 持续更新中
