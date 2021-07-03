@@ -11,6 +11,15 @@
 * 提高编译器效率，增加运行速度。
 * 为未来新版本的Javascript做好铺垫。 
 
+## How to use it? 
+### Strict mode for scripts 
+`
+// Whole-script strict mode syntax
+'use strict';
+var v = "Hi! I'm a strict mode script!";
+`
+
+
 ## Changes In Strict Mode 
 
 * 持续更新中
