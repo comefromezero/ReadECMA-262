@@ -18,7 +18,22 @@
 'use strict';
 var v = "Hi! I'm a strict mode script!"; 
 ```
-
+### Strict mode for functions 
+```
+function strict() {
+  // Function-level strict mode syntax
+  'use strict';
+  function nested() { return 'And so am I!'; }
+  return "Hi!  I'm a strict mode function!  " + nested();
+}
+```
+### Strict mode for modules 
+```
+function strict() {
+    // because this is a module, I'm strict by default
+}
+export default strict;
+```
 
 ## Changes In Strict Mode 
 
