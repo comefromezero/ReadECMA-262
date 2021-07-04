@@ -253,3 +253,7 @@ person.name = 'Matt'; // ok，我们可以通过persion访问这个对象。
 ``` Javascript
 for (const i = 0; i < 10; ++i) {} // TypeError：给常量赋值
 ``` 
+
+## 总结
+
+在日常使用中，如果一个变量将来需要改变，应该使用let；如果确定一个变量将来不需要改变，应该使用const；不要使用var。
