@@ -33,7 +33,7 @@ function strict() {
     // because this is a module, I'm strict by default
 }
 export default strict;
-```
+``` 
 
 ## Changes In Strict Mode 
 
