@@ -37,6 +37,7 @@ export default strict;
 
 ## Changes In Strict Mode(严格模式均参考ES6) 
 
-* implements, interface, let, package, private, protected, public, static是保留字
+* 严格模式下，implements, interface, let, package, private, protected, public, static是保留字
 * 严格模式下，eval和arguments不能作为声明的标识符
+* 严格模式下，直接对一个未声明的标识符赋值会出错
 * 持续更新中
