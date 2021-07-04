@@ -35,8 +35,8 @@ function strict() {
 export default strict;
 ``` 
 
-## Changes In Strict Mode 
+## Changes In Strict Mode(严格模式均参考ES6) 
 
-* 
-
+* implements, interface, let, package, private, protected, public, static是保留字
+* 严格模式下，eval和arguments不能作为声明的标识符
 * 持续更新中
