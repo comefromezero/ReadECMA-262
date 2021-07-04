@@ -13,13 +13,13 @@
 
 ## How to use it? 
 ### Strict mode for scripts 
-```
+``` Javascript
 // Whole-script strict mode syntax
 'use strict';
 var v = "Hi! I'm a strict mode script!"; 
 ```
 ### Strict mode for functions 
-```
+``` Javascript
 function strict() {
   // Function-level strict mode syntax
   'use strict';
@@ -28,7 +28,7 @@ function strict() {
 }
 ```
 ### Strict mode for modules 
-```
+``` Javascript
 function strict() {
     // because this is a module, I'm strict by default
 }
@@ -36,5 +36,7 @@ export default strict;
 ```
 
 ## Changes In Strict Mode 
+
+* 
 
 * 持续更新中
