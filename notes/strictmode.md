@@ -40,4 +40,5 @@ export default strict;
 * 严格模式下，implements, interface, let, package, private, protected, public, static是保留字
 * 严格模式下，eval和arguments不能作为声明的标识符
 * 严格模式下，直接对一个未声明的标识符赋值会出错
+* 严格模式下，禁止使用八进制literal，但是可以使用0o前缀。
 * 持续更新中
