@@ -41,6 +41,7 @@ let num1 = 5;
 let num2 = num1;
 ```
 这里，num1 包含数值 5。当把 num2 初始化为 num1 时，num2 也会得到数值 5。这个值跟存储在num1 中的 5 是完全独立的，因为它是那个值的副本。
+
 ![原始值复制](https://github.com/comefromezero/ReadECMA-262/blob/main/img/%E5%8E%9F%E5%A7%8B%E5%80%BC%E5%A4%8D%E5%88%B6.png)
 
  
