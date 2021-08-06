@@ -11,7 +11,8 @@
 * 提高编译器效率，增加运行速度。
 * 为未来新版本的Javascript做好铺垫。 
 
-## How to use it? 
+## How to use it?
+
 ### Strict mode for scripts 
 ``` Javascript
 // Whole-script strict mode syntax
@@ -28,6 +29,7 @@ function strict() {
 }
 ```
 ### Strict mode for modules 
+
 ``` Javascript
 function strict() {
     // because this is a module, I'm strict by default
