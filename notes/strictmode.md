@@ -43,4 +43,5 @@ export default strict;
 * 严格模式下，eval和arguments不能作为声明的标识符
 * 严格模式下，直接对一个未声明的标识符赋值会出错
 * 严格模式下，禁止使用八进制literal，但是可以使用0o前缀。
+* 严格模式下,函数名不能为eval和argument，参数名不能为eval和argument，不能存在相同的参数名。
 * 持续更新中
