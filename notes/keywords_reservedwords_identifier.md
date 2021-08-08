@@ -3,7 +3,7 @@
 * break continue delete else for function if in new return this typeof var void while with(ES2)
 * case  switch  default  finally  try   catch   throw  do  instanceof(ES3)
 * debugger(ES5)
-* export class extends const super yield import(ES6) 
+* export class extends const let super yield import(ES6) 
 
 # Reserved Words 
 
@@ -14,7 +14,7 @@
 * await 
 
 ## Reserved in strict mode 
-* implements package public interface protected static let private 
+* implements package public interface protected static private 
 
 # Identifier 
 

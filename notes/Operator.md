@@ -108,3 +108,7 @@ let age = group && group.zhangsan && group.zhangsan.age;  //如果group存在，
 let age = group?.zhangsan?.age; //简洁多了。
 ```
 
+附:
+
+[MDN的操作符讲解](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
+
