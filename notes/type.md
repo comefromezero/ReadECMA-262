@@ -392,7 +392,7 @@ ECMAScript 6 新增了使用模板字面量定义字符串的能力。其通过`
 ``` Javascript
 let lastName = `Jingleheimerschmidt`
 ```
-模板字符串一般用于定义HTML模板，这里我们讨论。
+模板字符串一般用于定义HTML模板，这里我们不讨论。
 
 ## 包装类型：Boolean、Number、String。
 
