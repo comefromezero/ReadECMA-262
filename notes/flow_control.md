@@ -25,27 +25,27 @@ else ...
 do-while 语句是一种后测试循环语句，即循环体中的代码执行后才会对退出条件进行求值。换句话说，循环体内的代码至少执行一次。
 
 语法如下：
-
+``` Javascript
 do { 
  statement 
 } while (expression);
-
+```
 ## while循环语句
 
 while 语句是一种先测试循环语句，即先检测退出条件，再执行循环体内的代码。因此，while 循环体内的代码有可能不会执行。
 
 语法如下：
-
+``` Javascript
 while(expression) statement
-
+```
 ## for循环语句
 
 for 语句也是先测试语句，只不过增加了进入循环之前的初始化代码，以及循环执行后要执行的表达式。
 
 语法如下：
-
+``` Javascript
 for (initialization; expression; post-loop-expression) statement
-
+```
 例子：
 
 ``` Javascript
@@ -60,8 +60,9 @@ for-in 语句是一种严格的迭代语句，用于枚举对象中的非符号�
 
 语法如下：
 
+``` Javascript
 for (property in expression) statement
-
+```
 例子：
 
 ``` Javascript
@@ -79,8 +80,9 @@ for-of 语句是一种严格的迭代语句，用于遍历可迭代对象的元�
 
 语句如下：
 
+``` Javascript
 for (property of expression) statement
-
+```
 例子：
 
 ``` Javascript
@@ -98,8 +100,9 @@ label标签语句的作用是给跳转语句设置一个跳转点。（慎用，
 
 语法如下：
 
+``` Javascript
 label: statement
-
+```
 例子：
 
 ``` Javascript
@@ -145,7 +148,9 @@ with 语句的用途是将代码作用域设置为特定的对象。
 
 语法如下：
 
+``` Javascript
 with (expression) statement;
+```
 
 由于with语句很难调试，而且会影响程序性能，目前已经不太推荐使用with语句了。
 
@@ -155,6 +160,7 @@ switch语句常常用于多个分支跳转的情况，另外相关的关键字ca
 
 语法通常如下：
 
+``` Javascript
 switch (expression) { 
  case value1: 
     statement 
@@ -171,5 +177,6 @@ switch (expression) {
  default: //default可以不写
     statement 
 }
+```
 
 流程控制语句也没有太多的东西可说，就这样吧。
