@@ -1,6 +1,6 @@
 # 错误异常处理
 
- ES提供了异常处理机制，即try、catch、trrow、finally三种语句。
+ ES提供了异常处理机制，即try、catch、throw、finally三种语句。
 
  语法如下：
 
@@ -77,3 +77,5 @@ throw new ReferenceError("You didn't cite your references properly.");
 ### 将异常日志记录到服务器
 
 想要将异常日志记录到服务器，自然而然是要经过http协议将异常日志发送到服务器，这里我们可以使用Ajax或者使用Jsonp的方式，相比之下Jsonp的方式通用性更好。
+
+一般性的日志接口应该设计token认证，否则就很容易被盗用。
