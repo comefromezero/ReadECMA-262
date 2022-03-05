@@ -450,9 +450,15 @@ ES2.0章节9规定了Types之间的任意转换方法。
 
 ## Native ECMAScript Object
 
+The Global Object、Object、Function、Array、String、Boolean、Number、Math、Date
+
+### prototype chain
+
+详细见:章节4.2,该章节详解介绍了原型链，深刻诠释了js对象之间的关系，正是通过原型链，JS实现对象之间的继承。
+
 ### The Global Object
 
-全局对象是一个特殊的对象，也是整个JS执行过程中的第一个对象，所有的其他对象或者全局函数以及变量等都是全局对象的property。
+全局对象是一个特殊的对象(单例对象)，也是整个JS执行过程中的第一个对象，所有的其他对象或者全局函数以及变量等都是全局对象的property。
 
 ### Properties of Global Object
 
@@ -464,5 +470,120 @@ ES2.0章节9规定了Types之间的任意转换方法。
 
 ### Object Objects
 
+一切对象都源于Object.prototype Object这个对象，它处在原型链的最顶端。
 
+一些Object的方法，例如valueof其实在ES2.0就已经实现了。
 
+其他的property详见：章节15.2。
+
+### Function Objects
+
+所有Prototype Object的constructor都是一个函数，所以它们都是一个Function Object Instance。
+
+比较常用的property，Function Object Instance中最有用的一个property，即length，该property表明了该function接收的参数个数。
+
+详见：章节15.3
+
+### Array Objects
+
+Prototype Ojbect的toString(),join(),reverse(),sort()等Property都非常有用。
+
+其instance中有用的property：length。
+
+详见：章节15.4
+
+### String Objects
+
+Prototype Object的toString(),valueOf(),charAt(),indexOf(),lastIndexOf(),split(),substring(),toUpperCase(),toLowerCase()等都是非常常用的。
+
+其instance中有用的property：length。
+
+详见：章节15.5
+
+### Booloean
+
+Boolean比较简单，其Prototype Object总共就具备两个property:toString()和valueOf()。
+
+详见：章节15.6
+
+### Number
+
+Number这个应该是比较有意思的一个Object，在实际使用过程中，很少会用到它以及它的各种properties。
+
+Prototype Object比较有用的properties:toString()和valueOf();
+
+详见：章节15.7
+
+### Math
+
+Math这个对象是唯一一个不能实例化的对象(单例对象)，其不能用于new 表达式，其存在的意义就是提供各种数学计算函数以及一些特殊的数学常量。
+
+一些properties:
+
+E：对，就是那个特殊的数学常量e。
+
+PI：对，就是圆周率，π。
+
+abs():绝对值函数。
+
+ceil():不小于参数的最小整数。
+
+floor():不大于参数的最大整数。
+
+max():返回较大的那个数字。
+
+min():返回较小的那个数字。
+
+pow():计算指数值。
+
+random():随机数,正数，其可能等于0，但是绝对小于1的随机数。
+
+详见：章节15.8
+
+### Date
+
+这个对象是JS中的时间相关的部分，需要获取当前时间，或者获得一个具体时间的话，都需要用到它。
+
+对于Date对象来说，其构造函数具有多种形式，根据不同的需要使用不同的形式：
+
+ Date(year, month, date, hours, minutes, seconds, ms)
+
+ Date(year, month, date, hours, minutes, seconds)
+
+ Date(year, month, date, hours, minutes)
+
+ Date(year, month, date, hours)
+
+ Date(year, month, day)
+
+ Date(year, month)
+
+ Date(value):value表示1970年1月1日0时之后的毫秒数。
+
+其中需要经常用到的一些properties:
+
+parse():从某一个字符串日期时间获取一个Date对象，返回毫秒数。
+
+UTC():从某个日期生成Date对象，返回毫秒数。
+
+一些Prototype Object的properties:
+
+toString()
+
+valueOf()
+
+getTime():获取当前Date对象中记录的时间距离1970年1月1日之后的毫秒数。
+
+getFullYear():获取当前Date对象中的年份。
+
+getMonth():获取当前Date对象中的月份。
+
+getDay():获取当前Date对象中的时间位于一周的星期几。
+
+toLocaleString()
+
+toUTCString()
+
+toGMTString()
+
+详见：章节15.9
