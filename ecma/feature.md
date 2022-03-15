@@ -4,6 +4,22 @@
 
 起步支持unicode2.0（这里规定了源字符的范围，U0000到U10FFFF的所有字符）
 
+## WhiteSpace
+
+<TAB> //Tab 
+
+<VT>  //Vertical Tab
+
+<FF>  //Form Feed 换页
+
+<SP>  //Space 空格
+
+## LineTerminator
+
+<LF> //Line Feed 换行
+
+<CR> //Carriage Return 回车
+
 ## comments
 
 // 单行注释
@@ -48,87 +64,89 @@ with
 
 ### future reserved words
 
-abstract         
+abstract
 
-do                     
+do
 
-import             
+import
 
 short
 
-boolean         
+boolean
 
-double              
+double
 
-instanceof      
+instanceof
 
 static
 
-byte                
+byte
 
-enum               
+enum
 
-int 
+int
 
 super
 
-case               
+case
 
-export              
+export
 
-interface          
+interface
 
 switch
 
-catch              
+catch
 
-extends           
+extends
 
-long                 
+long
 
 synchronized
 
-char              
+char
 
-final                  
+final
 
-native               
+native
 
 throw
 
-class              
+class
 
-finally               
+finally
 
-package           
+package
 
 throws
 
-const             
+const
 
-float                  
+float
 
-private              
+private
 
 transient
 
-debugger      
+debugger
 
-goto                  
+goto
 
-protected         
+protected
 
 try
 
-default           
+default
 
-implements     
+implements
 
-public                
+public
 
 volatile
 
 ### other
+
+这三个都是Reserved Words，这是最容易被人忽略的，需要注意。
 
 null
 
@@ -316,6 +334,84 @@ Object
 
 ES2.0章节9规定了Types之间的任意转换方法。
 
+## Execution Contexts
+
+这个部分根据文档有所不同，主要定义了执行过程中遇到的各种概念。
+
+而这些概念有些则纯粹用于ES文档中，用于说明各种过程。
+
+### Function Objects
+
+* Declared functions
+
+* Anonymous functions
+
+* Implementation-supplied functions
+
+* Internal functions
+
+### Types of Executable Code
+
+* Global code
+
+* Eval code
+
+* Function code
+
+* Anonymous code
+
+* Implementation-supplied code
+
+### Variable instantiation
+
+这里讲述了声明的不同类型的标识符在程序执行过程中的实例化。
+
+* FunctionDeclaration
+
+* formal parameter
+
+* VariableDeclaration
+
+### Scope Chain and Identifier Resolution
+
+这里直接规定了作用域链以及如何在作用域链中分辨标识符。
+
+### Global Object
+
+program开始执行之前一定会创建一个global object，并初始化一些Properties，在执行的过程中可能也会添加一些Proerties到global object中。在HTML中，这个global object称为windows。
+
+### Activation object
+
+当执行进入declared function code, anonymous code or
+implementation-supplied code的执行上下文的时候，一个activation object就会被创建，该activation object与该执行上下文相关联，并且它实例化的时候，会获得arguments这个proeprty。
+
+后续继续执行程序，该activation object会作为variable object（用于变量的实例化）。
+
+当程序执行离开该执行上下文的时候，该activation object被销毁。
+
+### This
+
+这个指向当前上下文，没什么好说的。
+
+### Arguments Object
+
+当程序执行进入declared function code, anonymous code, or
+implementation-supplied code的时候，一个arguments对象被创建。
+
+该对象主要用于保存各种参数，以及初始化一些例如callee，length等properties。
+
+### Entering An Execution Context
+
+这里有四类代码，当程序执行进入这些代码的时候，执行上下文的初始化以及一些properties会有所不同。
+
+#### Global Code
+
+#### Eval Code
+
+#### Function and Anonymous Code
+
+#### Implementation-supplied Code
+
 ## Statements
 
 * Block 
@@ -447,6 +543,16 @@ ES2.0章节9规定了Types之间的任意转换方法。
 * Compound assignment ( op= ) 
 
 ### Comma operator ( , )
+
+## Function Definition
+
+* 规定了函数定义的形式。
+
+## Program
+
+* 确定了一个program的基本结构。
+
+一个Program由statements和FunctionDeclaration组成。
 
 ## Native ECMAScript Object
 
@@ -626,6 +732,20 @@ do/while语句
 
 起步支持unicode2.1（这里规定了源字符的范围，U0000到U10FFFF的所有字符）
 
+## White Space
+
+新增：
+
+* <NBSP> //No-break space
+
+* <USP>  //Any other Unicode “space separator”
+
+## Line Terminator
+
+* <LS> //Line separator
+
+* <PS> //Paragraph separator
+
 ## keywords and reserved words
 
 ### keywords
@@ -701,6 +821,8 @@ Unicode letter：any character in the Unicode categories “Uppercase letter (Lu
 * The instanceof operator
 
 ###  Equality Operators
+
+新增:
 
 * The Strict Equals Operator ( === )
 
@@ -930,6 +1052,12 @@ Native Error Types:
 
 起步支持unicode3.0（这里规定了源字符的范围，U0000到U10FFFF的所有字符）
 
+## White Space
+
+新增:
+
+* <BOM> //Byte Order Mark
+
 ## keywords and reserved words
 
 ### keywords
@@ -985,6 +1113,26 @@ static
 第一个字符不能是行终结符，*，\，/，[;
 
 最后有一个字符不能是行终结符，],\。
+
+## Executable Code and Execution Contexts
+
+这部分有所改变，新定义了一系列的操作与一些新概念。
+
+详见：章节 10
+
+以下是新增的部分概念：
+
+* Lexical Environments
+
+* Environment Records
+
+  1. Declarative Environment Records
+
+  2. Object Environment Records
+
+  3. The Global Environment
+
+* Declaration Binding Instantiation
 
 ## Statements
 
@@ -1203,6 +1351,11 @@ proxy/reflect
 
 起步支持unicode5.1（这里规定了源字符的范围，U0000到U10FFFF的所有字符）
 
+## White Space
+
+新增:
+
+* <ZWNBSP> //ZERO WIDTH NO-BREAK SPACE
 
 ## keywords and reserved words
 
@@ -1285,6 +1438,38 @@ symbol（primitive type）
 
 ES6.0文档的7.1章节，新增了symbol类型转换的内容。
 
+## Executable Code and Execution Contexts
+
+这个部分改动比较大，将一些代码执行的操作都抽象为了一些数据结构与相应的抽象操作，从而使用这些数据结构与抽象操作说明执行过程。
+
+详见: 章节 8
+
+新增的一些概念:
+
+* Code Realms
+
+* Jobs and Job Queues
+
+* ECMAScript Initialization
+
+### Lexical Environments
+
+新增：
+
+#### Function Environment Records
+
+#### Global Environment Records
+
+#### Module Environment Records
+
+### Types of Source Code
+
+新增:
+
+* Module Code
+
+详见：章节 8
+
 ## Statements
 
 新增：
@@ -1311,6 +1496,12 @@ ES6.0文档的7.1章节，新增了symbol类型转换的内容。
 
 * Function Defining Expressions
 
+  1. FunctionExpression
+
+  2. GeneratorExpression
+
+  3. ClassExpression
+
 * Regular Expression Literals
 
 * Template Literals
@@ -1325,6 +1516,14 @@ ES6.0文档的7.1章节，新增了symbol类型转换的内容。
 
 * Meta Properties
 
+### Assignment Operators
+
+新增:
+
+* ArrowFunction
+
+* Destructuring Assignment(解构赋值)
+
 还有另外一些expressions不知道属于哪一类，但是应该都算是新增:
 
 * Function Definitions
@@ -1338,6 +1537,65 @@ ES6.0文档的7.1章节，新增了symbol类型转换的内容。
 * Class Definitions
 
 * Tail Position Calls
+
+* ...（扩展运算）
+
+## Functions and Classes
+
+这一部分就是原来的Function Definitions的内容，但是由于ES6.0增加了Class的内容，所以这里就变为FUnctions and Classes。
+
+* Function Definitions //普通函数的定义
+
+以下是这部分在ES6.0文档中新增:
+
+* Arrow Function Definitions
+
+* Method Definitions
+
+* Generator Function Definitions
+
+* Class Definitions
+
+* Tail Position Calls
+
+详见: 章节 14
+
+### Function Definitions
+
+这一部分没什么变化。
+
+### Arrow Function Definitions
+
+这里定义了新增的箭头函数形式。
+
+### Method Definitions
+
+这里规定的是对象中的方法的形式。
+
+### Generator Function Definitions
+
+这里规定了生成器函数的定义形式。
+
+
+### Class Definitions
+
+这里规定了class的定义形式，包含了基本对象定义与继承。
+
+### Tail Position Calls
+
+尾递归的优化计算。
+
+## Scripts and Modules
+
+原来的Program变为这部分。
+
+由于ES6.0增加了module的内容，所以不再是简单的一个Program了，而是分为Script与Module了。
+
+* Scripts
+
+* Moudles
+
+详见: 章节 15
 
 ## Native ECMAScript Object
 
@@ -1356,6 +1614,10 @@ ES6.0文档的7.1章节，新增了symbol类型转换的内容。
 * setPrototypeOf ( O, proto )
 
 ### The Function objects
+
+#### Properties of the Function Constructor
+
+* Function.prototype[@@hasInstance] ( V )
 
 #### Properties of Function instances
 
@@ -1622,11 +1884,11 @@ eArr.next();
 eArr[Symbol.toStringTag];
 ```
 
-## The TypedArray objects
+### The TypedArray objects
 
 定型数组是ES6.0新增的结构，目的是提升向原生库传输数据的效率。
 
-### The TypedArray Constructors
+#### The TypedArray Constructors
 
 * %TypedArray% ( )
 
@@ -1664,7 +1926,7 @@ TypedArray可以是如下类型:
 
 强相关章节：24.1 ArrayBuffer 24.2 DateView
 
-## The JSON objects
+### The JSON objects
 
 新增：
 
@@ -1675,23 +1937,23 @@ TypedArray可以是如下类型:
 JSON[Symbol.toStringTag];
 ```
 
-## The Map objects
+### The Map objects
 
 新增对象，这是一种键值对的数据结构。键和值可以是任意的类型值。
 
-### The Map Constructor
+#### The Map Constructor
 
 * Map() //无参数形式
 
 * Map([ iterable ]) //可迭代对象作为参数，例如Array。
 
-### Properties of the Map Constructor
+#### Properties of the Map Constructor
 
 * get Map [ @@species ]
 
 返回Map的构造函数。
 
-### Properties of the Map Prototype Object
+#### Properties of the Map Prototype Object
 
 * clear ( )
 
@@ -1717,25 +1979,25 @@ JSON[Symbol.toStringTag];
 
 * Map.prototype [ @@toStringTag ]
 
-### Map Iterator Objects
+#### Map Iterator Objects
 
-#### The %MapIteratorPrototype% Object
+##### The %MapIteratorPrototype% Object
 
 * %MapIteratorPrototype%.next ( )
 
 * %MapIteratorPrototype% [ @@toStringTag ]
 
-## The WeakMap objects
+### The WeakMap objects
 
 这也是一个新增的对象，一种新增的键值对数据结构。键必须是对象，值可以是任意类型值,除此之外，它的功能也稍弱于Map。
 
-### The WeakMap Constructor
+#### The WeakMap Constructor
 
 * WeakMap();
 
 * WeakMap([iterable]); //参数是可迭代对象，例如Array。
 
-### Properties of the WeakMap Prototype Object
+#### Properties of the WeakMap Prototype Object
 
 * delete ( key )
 
@@ -1750,22 +2012,22 @@ JSON[Symbol.toStringTag];
 可以看到，功能相对于Map的确少了很多。
 
 
-## The Set objects
+### The Set objects
 
 Set是新增的对象，这是一种新增的数据结构，它是一种集合结构，集合中的值具有唯一性，不能出现两个相同的类型值。
 
-### The Set Constructor
+#### The Set Constructor
 
 * Set (  )
 
 * Set ( [ iterable ] )
 
-### Properties of the Set Constructor
+#### Properties of the Set Constructor
 
 * get Set [ @@species ] //返回Map的构造函数。
 
 
-### Properties of the Set Prototype Object
+#### Properties of the Set Prototype Object
 
 * add ( value )
 
@@ -1789,25 +2051,25 @@ Set是新增的对象，这是一种新增的数据结构，它是一种集合�
 
 * Set.prototype [ @@toStringTag ]
 
-### Set Iterator Objects
+#### Set Iterator Objects
 
-#### The %SetIteratorPrototype% Object
+##### The %SetIteratorPrototype% Object
 
 * %SetIteratorPrototype%.next ( )
 
 * %SetIteratorPrototype% [ @@toStringTag ]
 
-## The WeakSet objects
+### The WeakSet objects
 
 新增的一个对象，它是对象的集合。与Set相比，它保存的元素只能是对象。
 
-### The WeakSet Constructor
+#### The WeakSet Constructor
 
 * WeakSet (  )
 
 * WeakSet ( [ iterable ] )
 
-### Properties of the WeakSet Prototype Object
+#### Properties of the WeakSet Prototype Object
 
 * add ( value )
 
@@ -1819,21 +2081,21 @@ Set是新增的对象，这是一种新增的数据结构，它是一种集合�
 
 WeakSet的功能比Set弱上不少。
 
-## The ArrayBuffer objects
+### The ArrayBuffer objects
 
 新增的一个对象，用于在内存中分配特定字节数的内存区域。
 
-### The ArrayBuffer Constructor
+#### The ArrayBuffer Constructor
 
 * ArrayBuffer( length ) //单位是字节
 
-### Properties of the ArrayBuffer Constructor
+#### Properties of the ArrayBuffer Constructor
 
 * isView ( arg )
 
 * get ArrayBuffer [ @@species ]
 
-### Properties of the ArrayBuffer Prototype Object
+#### Properties of the ArrayBuffer Prototype Object
 
 * get ArrayBuffer.prototype.byteLength
 
@@ -1841,13 +2103,13 @@ WeakSet的功能比Set弱上不少。
 
 * ArrayBuffer.prototype [ @@toStringTag ]
 
-## The DataView objects
+### The DataView objects
 
-### The DataView Constructor
+#### The DataView Constructor
 
 * DataView (buffer [ , byteOffset [ , byteLength ] ] )
 
-### Properties of the DataView Prototype Object
+#### Properties of the DataView Prototype Object
 
 * get DataView.prototype.buffer
 
@@ -1889,24 +2151,24 @@ WeakSet的功能比Set弱上不少。
 
 * DataView.prototype[ @@toStringTag ]
 
-## Iteration
+### Iteration
 
 迭代器是ES6.0新增的内容。
 
 一个对象是否可迭代，取决于其是否具有迭代器。
 
-### @@iterator
+#### @@iterator
 
 对象内部的迭代器property的名字，[Symbol.iterator]。
 
 这是一个函数，返回迭代器对象。
 
-### next()
+#### next()
 
 迭代器对象必须具有的property，这是一个函数，返回一个Resultobject。
 
 
-### ResultObject
+#### ResultObject
 
 必须具有如下properties:
 
@@ -1914,21 +2176,21 @@ WeakSet的功能比Set弱上不少。
 
 * value //当前正迭代的element的值。
 
-## The GeneratorFunction Objects
+### The GeneratorFunction Objects
 
 与The Function objects类似，这是一种特殊的函数对象，成为生成器函数对象。
 
-### The GeneratorFunction Constructor
+#### The GeneratorFunction Constructor
 
 * GeneratorFunction (p1, p2, … , pn, body)
 
-### Properties of the GeneratorFunction Constructor
+#### Properties of the GeneratorFunction Constructor
 
 * length
 
 * GeneratorFunction.prototype [ @@toStringTag ]
 
-### GeneratorFunction Instances
+#### GeneratorFunction Instances
 
 * length
 
@@ -1936,11 +2198,11 @@ WeakSet的功能比Set弱上不少。
 
 * prototype
 
-## The Generator Objects
+### The Generator Objects
 
 这是满足iterator要求的Generator函数的实例对象。
 
-### Properties of Generator Prototype
+#### Properties of Generator Prototype
 
 * next ( value )
 
@@ -1950,7 +2212,7 @@ WeakSet的功能比Set弱上不少。
 
 * Generator.prototype [ @@toStringTag ]
 
-## Promise objects
+### Promise objects
 
 Promise是一个新增的对象，其目的就是为了解决回调地狱，Promise对象是一种链式调用，在ES6.0之前，其他的一些库都已经实现了Promise。
 
@@ -1964,11 +2226,11 @@ Promise是一个新增的对象，其目的就是为了解决回调地狱，Prom
 
 * rejected // rejected状态就会执行p.then(f.r)中r函数。
 
-### The Promise Constructor
+#### The Promise Constructor
 
 * Promise(executor) //excutor这个参数必须写，而且excutor这个参数是一个两个参数的函数，其会立即得到执行。
 
-### Properties of the Promise Constructor
+#### Properties of the Promise Constructor
 
 * Promise.all ( iterable )
 
@@ -1980,7 +2242,7 @@ Promise是一个新增的对象，其目的就是为了解决回调地狱，Prom
 
 * get Promise [ @@species ]
 
-### Properties of the Promise Prototype Object
+#### Properties of the Promise Prototype Object
 
 * catch ( onRejected )
 
@@ -1988,7 +2250,7 @@ Promise是一个新增的对象，其目的就是为了解决回调地狱，Prom
 
 * Promise.prototype [ @@toStringTag ]
 
-## The Reflect Object
+### The Reflect Object
 
 ES6.0新增的对象，它不是一个函数对象，所以它不具备构造函数，于是它不能够被构造，即实例化。
 
@@ -1998,16 +2260,336 @@ Reflect Ojbect提供了一系列的API，这些API可用于代理访问某个对
 
 强相关：章节 26.2 Proxy Object
 
-## The Proxy Objects
+### The Proxy Objects
 
 ES6.0新增的对象，通过它可以创建一个对象的代理对象，然后进行各种拦截操作。
 
-### The Proxy Constructor
+#### The Proxy Constructor
 
 * Proxy ( target, handler )
 
-### Properties of the Proxy Constructor
+#### Properties of the Proxy Constructor
 
 * revocable ( target, handler )
 
 Proxy的核心在于handler的编写，所有的拦截操作都在handler中定义。
+
+
+# ES2016
+
+## ES2016新增
+
+* 指数运算符(**)
+
+* Array.prototype.includes()
+
+## source text
+
+起步支持unicode8.0（这里规定了源字符的范围，U0000到U10FFFF的所有字符）
+
+## Punctuator
+
+新增:
+
+**（幂运算符）
+
+**=（幂运算赋值运算符）
+
+## Expressions
+
+### Exponentiation Operator
+
+新增:
+
+* \**(幂运算)
+
+### Assignment Operators
+
+新增:
+
+* \**=（幂运算赋值）
+
+## Native ECMAScript Object
+
+### The Array Objects
+
+#### Properties of the Array Prototype Object
+
+新增:
+
+* includes ( searchElement [ , fromIndex ] )
+
+### The TypedArray Objects
+
+#### Properties of the TypedArray Prototype Object
+
+新增:
+
+* includes ( searchElement [ , fromIndex ] )
+
+# ES2017
+
+## ES2017新增
+
+* Async Functions
+
+async/await
+
+* Shared Memery
+
+The SharedArrayBuffer Object
+
+* Atomics along with smaller language
+
+The Atomics Object
+
+* library enhancements
+
+新增了一些原生对象的方法。
+
+## source text
+
+要求支持最新的unicode标准。
+
+
+## keywords and reserved words
+
+### keywords
+
+新增:
+
+await
+
+注意点:await虽然是关键字，但是在某些情况下(非module和非async/await函数中，其可以作为标识符。)，其可以作为标识符，类似于yield，这里不展开论述，需要记住得是，await不要用作标识符，永远都不要。另外需要注意的一点：async不是关键字，其可以作为标识符，但是最好不用使用async当做标识符，所以永远也不要使用async作为标识符。
+
+具体可以看 12.1.1
+
+## Expressions
+
+### Primary Expression
+
+#### Function Defining Expressions
+
+新增:
+
+* AsyncFunctionExpression
+
+### Unary Operators
+
+新增:
+
+* AwaitExpression  //用于异步函数之中，启动执行异步代码的中断标记。
+
+### Assignment Operators
+
+新增:
+
+* AsyncArrowFunction
+
+## Executable Code and Execution Contexts
+
+新增的一些概念:
+
+### RunJobs ( )
+
+### Agents
+  
+  1. AgentSignifier( )
+
+  2. AgentCanSuspend( )
+
+### Agent Clusters
+
+### Forward Progress
+
+## Functions and Classes
+
+新增:
+
+* Async Function Definitions
+
+* Async Arrow Function Definitions
+
+## Native ECMAScript Object
+
+### The Object objects
+
+#### Properties of the Object Constructor
+
+新增:
+
+* entries(O)
+
+* getOwnPropertyDescriptors(O)
+
+* values(O)
+
+### The String objects
+
+#### Properties of the String Prototype Object
+
+新增:
+
+* endsWith ( searchString [ , endPosition ] )
+
+* padStart( maxLength [ , fillString ] )
+
+### The SharedArrayBuffer Objects
+
+这是新增的一个对象，增加了共享内存的特性。该对象类似于ArrayBuffer。
+
+利用web work可以创建在浏览器后台运行的线程，工作主线程从而可以继续执行并响应UI。在这种情况下，后台运行的线程与主线程之间就会有交换数据的需求，在以前，数据交换往往是复制原始数据的一部分，然后交互传递，现在有了共享内存，这些线程之间就可以直接通过共享内存来交换数据了。
+
+由于一些安全问题，该对象在现在的主流浏览器中被禁止使用，因此不做过多描述。
+
+详见:章节24.2
+
+强相关:章节 24.4 Atomics
+
+### The Atomics objects
+
+这也是新增的一个对象，主要提供对共享内存的原子性操作。
+
+详见:章节 24.4
+
+
+# ES2018
+
+## ES2018新增
+
+* asynchronous iteration via the AsyncIterator protocol and async generators
+
+支持异步迭代特性，即for...of...可以进行异步迭代了，这有利于写出循环式的异步任务。
+
+* four new regular expression features
+
+the dotAll flag, named capture groups, Unicode property escapes, and look-behind assertions.
+
+*  rest parameter and spread operator support for object properties
+
+{...obj}
+
+## Expressions
+
+###  Primary Expression
+
+新增:
+
+* AsyncGeneratorExpression //对应于异步迭代特性
+
+
+## Statements
+
+### Iteration Statements
+
+新增:
+
+* forfor-awaitawait-ofof Statements //异步迭代特性
+
+
+## Functions and Classes
+
+新增:
+
+* Async Generator Function Definitions
+
+## Native ECMAScript Object
+
+### The Symbol Objects
+
+#### Properties of the Symbol Constructor
+
+新增:
+
+* Symbol.asyncIterator
+
+
+### The RegExp objects
+
+####  Properties of the RegExp Prototype Object
+
+新增:
+
+* get RegExp.prototype.dotAll //对应正则的doeAll模式。
+
+### Iteration
+
+新增：
+
+增加了异步迭代器以及其所必须的properties。
+
+### AsyncGeneratorFunction Objects
+
+这是新增的一个对象，对应于异步的Generator函数。
+
+详见: 章节 25.3
+
+### AsyncGenerator Objects
+
+这是新增的一个对象，它是AysncGeneratorFunction Object的实例。
+
+详见: 章节 25.5
+
+### Promise Objects
+
+#### Properties of the Promise Prototype Object
+
+新增:
+
+* finally ( onFinally )
+
+# ES2019
+
+## ES2019新增
+
+* introduces a few new built-in functions
+
+ 1. flat and flatMap on Array.prototype for flattening arrays
+
+ 2. Object.fromEntries for directly turning the return value of Object.entries into a new Object
+
+ 3.  trimStart and trimEnd on String.prototype as better-named alternatives to the widely implemented but non-standard String.prototype.trimLeft and trimRight builtins
+
+* a few minor updates to syntax and semantics
+
+1. Updated syntax includes optional catch binding parameters and allowing U+2028 (LINE SEPARATOR) and U+2029 (PARAGRAPH SEPARATOR) in string literals to align with JSON
+
+* requiring that Array.prototype.sort be a stable sort
+
+* requiring that JSON.stringify return well-formed UTF-8 regardless of input
+
+* clarifying Function.prototype.toString by requiring that it either return the corresponding original source text or a standard placeholder
+
+## Statements
+
+### The try Statement
+
+新增：可选catch的try语句
+
+* 不带catch的try语句， try Block Finally。
+
+## Native ECMAScript Objects
+
+### The Object Objects
+
+#### Properties of the Object Constructor
+
+* Object.fromEntries ( iterable )
+
+### The Symbol objects
+
+#### Properties of the Symbol Prototype Object
+
+新增:
+
+* get Symbol.prototype.description
+
+### The Array Objects
+
+#### Properties of the String Prototype Object
+
+新增:
+
+* trimStart ( )
+
+* trimEnd ( )
