@@ -2629,3 +2629,30 @@ the dotAll flag, named capture groups, Unicode property escapes, and look-behind
 * Nullish coalescing Operator(空值处理)
 
 * Optional chaining（可选链）
+
+
+# ES2021
+
+## ES2021新增
+
+* the replaceAll replaceAll method for Strings
+
+* Promise.any
+
+a Promise combinator that short-circuits when an input value is fulfilled
+
+* AggregateError AggregateError, a new Error type to represent multiple errors at once
+
+* logical assignment operators (??=??=, &&=&&=, ||=||=)
+
+* WeakRef
+
+for referring to a target object without preserving it from garbage collection
+
+* FinalizationRegistry
+
+manage registration and unregistration of cleanup operations performed when target objects are garbage collected
+
+* separators for numeric literals (1_0001_000)
+
+* Array.prototype.sort Array.prototype.sort was made stable (这个在ES2019中就提过了，这里难道是明确了具体的算法？)
