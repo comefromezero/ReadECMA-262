@@ -433,7 +433,7 @@ s1 = null;
 
 Symbol（符号）是 ECMAScript 6 新增的数据类型。符号是原始值，且符号实例是唯一、不可变的。符号的用途是确保对象属性使用唯一标识符，不会发生属性冲突的危险。
 
-Symbol可以用作Object的Proerty的name，这样就能防止Object中的name冲突了。
+Symbol可以用作Object的Proerty的name，这样就能防止Object中的name冲突了。同样的，Symbol也可以作为Map中的key，也能防止key冲突.
 
 
 ## Object 类型
